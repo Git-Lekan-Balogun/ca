@@ -1,0 +1,1973 @@
+part 2 1. Full Stack Engineer
+
+we need to know
+javascript
+
+frontend:
+html
+css
+react
+
+backend:
+node/express
+postgreSQL
+
+technical interviews
+
+learning objectives:
+set up own dev environment and version control work with git/github
+write client side and server side javascript code
+critic static, responsive websites with html/css
+use popular react front end framework, and redux
+build node/express back ends
+
+projects. examples:
+mixed messages:	build a node.js console app that generates random messages each time a 				user runs the program, version your project with git/github
+
+personal portfolio project:
+			use html, css, and GitHub pages to build a personal portfolio static website
+			where you can share other projects
+
+reddit client:
+			use javascript, react, redux, and the reddit API, build an online forum 					containing real life data
+
+open ended project:
+			use all you’ve learned to build an app
+
+overview of web development
+how does the internet work
+identify different languages for web development
+define what programming is
+summarise what a software engineer does in their job
+explain the difference between front, back end and full stack
+
+how did the internet start?
+some governments and universities wanted to communicate to transfer large scale information
+many of them followed different protocols, which would be inefficient
+in 1970s, transmission control protocol TCP and internet protocol IP were created to provide a standard about transfer data
+
+it was then fortified/adopted in the 1980s and therefore became the internet 
+
+internet =/= www
+internet: network of connected computing devices
+world wide web: collection of interlinked websites
+
+browsers and servers
+how is information sent from one device to another?
+client-server model
+client refers to users device or program making request for data, clients can be:
+applications
+browsers
+
+server refers to device or program that waits for requests and sends back data, this could be:
+in house server
+rented server at data centre
+cloud server
+
+404 status code
+200
+OK					request succeeded
+
+301
+Moved permanently			resourced moved, client is being redirected
+
+404
+Not found				requested resource was not found
+
+500
+internal server error			server encountered unexpected error
+
+tidbits:
+when requesting, devices make multiple request, for each little thing that make up the webpage
+the device makes requests simultaneously:
+	grabbing elements on the page
+	grabbing additional/support elements for the page, e.g. CSS
+	grabs images and photos, if they’re big files - you’ll notice a delay
+	grabs the javascript to provide the interactivity of the page,
+		a page with no javascript is called a static page
+modern browsers do these request in parallel: all at once, and not one by one
+aspects/elements are displayed immediately, even if their supporting elements have not been booted
+this process tends to happen instantly, but depends on:
+	speed of the user’s connection
+	distance from the server
+	size of the website
+
+web 2.0
+early webpages were static, and user involvement would typically take a user to a new page, that user would have to wait for the new page to load
+web 1.0	static		universal content for all users
+web 2.0	interactive	you can comment on a page
+		dynamic	can show hours since post without reloading the page
+
+internet trends
+mobile phones and related devices now make up at least half of all internet traffic
+web dev practices must evolve to account for this
+
+responsive web design
+rise of responsiveness has changed how websites a built, we can now use CSS to structure our website to take into the account the size of the device screen, and therefore optimise our website for that device
+
+mobile applications and devices
+users are more likely to spend more time on applications, rather than browsers
+web			built from a series of links
+applications		designed to retain users attention
+
+mobile applications are built in programming languages like swift for iOS
+developers also use javascript
+
+languages for web development
+what is web development
+html				structure website content
+css				apply styling
+js				add interactivity
+SQL				store and retrieve data
+
+what is HTML
+the skeleton of all websites
+provides text, images, buttons, videos
+
+HTML = hypertext markup language 
+the markup refers to the annotation of all the code for a given page
+
+element			a unit of content e.g. <p>Hello World</p>
+content			in-between the tags: e.g. “Hello World”
+
+the hypertext refers to text that links to other text
+the hyper meaning there is more to read beyond the initial sentence, word, paragraph, via browsing
+
+an attribute provides additional information about an HTML element
+this is typically in a name and value structure e.g. name=“value” 
+
+links are made using href, hyperlink reference, these are done in anchor tags <a>
+<a href=“google.com">head to google!</a>
+<a href=“/resume.html”>my experience..</a>
+
+what is CSS
+css provides style to what is structure (html)
+we use a separate language so that we can apply universals 
+with universals we can add a text and have a style that would already apply because of the css laws
+
+css needs to be linked to in the page of html:
+e.g. <link rel=“stylesheet” href=“style.css”>
+
+css uses selectors that refer to the html elements:
+e.g.
+h1{
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 70px;
+    font-weight: 400;
+    line-height: 60px;
+    margin: 0px;
+}
+above, all h1 elements will follow these “css laws”
+
+what is js
+it defines the behaviour of the website
+we can do features such as:
+popup ads
+animated graphics 2D or 3D
+interactive audio, video
+maps and features relative to users geographic location
+
+javascript is here to respond to browser events
+these events can happen in real time, here’s a list of:
+clicking on a button
+pressing enter on the keyboard
+video file load complete
+user resizing/adjusting their window
+user hovering over text on a webpage
+
+onmouseover				user puts mouse near element
+
+functions allow for a block of code to be reused
+we can set javascript to fire off functions when events are triggered
+
+javascript goes in-between <script></script> tags, which alert the page that javascript is present, it technically separates js code from the HTML
+
+here’s a concept for clever code:
+this code can generate and randomise colour for text
+it does so by selecting from a range of numbers and enough to create a hexadecimal colour code
+we can save this in a function
+
+see the code below:
+
+  <body>
+      <button onclick="changeColor()">Repaint!</button>
+  </body>
+  
+      <script>
+        function getRandomColor(){
+          let letters = '0123456789ABCDEF';
+          let color = '#';
+          for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+          }
+          return color;
+        }
+        function changeColor(){
+          let newColor = getRandomColor();
+          document.body.style.backgroundColor = newColor;
+        }
+    </script>
+  
+</html>
+
+there is a button, repaint!
+there is a function, getRandomColour()
+	this function sets a variable with a set of characters
+	it sets another variable to the pound sign
+	6 digits with the pounding make a hexadecimal colour code
+	it loops through the variable, selecting a random value
+		in doing so it creates a colour code
+	give us back the colour code
+	
+	colour is the hexadecimal code, when called this will return the hexadecimal code
+
+when we now set the styling to the value returned by this function, it almost unknowingly creates a set colour for the background, and of course this changes each time the function is called
+	we also call this function by add the event on click to the button, so the function is called 
+	everytime the button is clicked
+
+what is SQL?
+sql is needed when you need to work with data:
+	store, retrieve, modify data such as:
+		usernames, shipping addresses, payment information
+
+sql				structured query language
+
+sql stores information in tables, a collection of information organised into rows and columns
+to get information, you would write a ‘query’, or a program that would retrieve data from the table
+
+tidbit:
+recall how we used a string to loop through and generate a code that would churn up a hexadecimal colour code, how would javascript be used to retrieve data from a table?
+	maybe for example: we could store two user inputs in a two variables, and use those 			variables as search queries for a table, if those values match up, we can for example:
+		log a user in successfully or unsuccessfully 
+
+example query:
+	SELECT * FROM page_views;
+
+“*” is shorthand for “ALL”
+
+what is programming?
+simply put programming is in everything
+	everything has been programmed to do something
+		from billboards, to machines, to devices
+it is a set of instructions
+
+programming			the mental process of summing up instructions for a machine
+coding				transforming those ideas into code that a machine can understand
+
+machines are tools, and they are here to improve or perform where we cannot
+
+humans			machines
+creative			follows literals
+infers				limited, hard-wired knowledge
+discovers patterns		calculates info quickly
+inconsistent			consistent
+loses focus			doesn’t
+
+
+introduction: fundamentals of HTML
+understand how html is used for web development
+use HTML to build a structure for a website
+create tables in HTML documents
+write clearer, accessible HTML using semantic HTML tags
+
+ensure all your content is within the body tags
+
+any elements within another element is a child of that element:
+	<body>
+		<p>Hello, FROM SE</p>
+	</body>
+<p> is considered a child of <body>
+if we had a another element inside <body> it would be sibling to <p> and also child of <body>
+<body> is considered the parent of <p> and whatever may be beside <p>
+this is important as elements can inherit styling from their parents
+
+<div>
+div is sure for division, it is popular and used to divide up all the content within HTML
+
+attributes
+attributes are content added to opening tags
+they can provide information
+they can change styles
+come in two parts:
+	name of attribute
+	value of attribute
+
+example of attribute is id
+we can use id attribute to identify an element
+id is useful when you use an element more than once, if we have 15 divs that are all different, how do we identify one particular div from the rest?
+
+<p> is paragraph and used for generic paragraphs 
+<span> is used to target instances within a sentence, or a piece of text that is inline with other text:
+	<p><span>This is an example</span>of using p and span tags<p>
+
+<em> is used to make text italic
+<strong> is used to make text bold
+<br> is used to add spaces on the webpage, it only needs an opening tag
+
+<ul> is unordered list, it makes a list of items with bullet points
+<ul> element should never hold raw text, instead, it holds several <li> tags
+e.g.:
+<ul>
+	<li>limes</li>
+	<li>chicken</li>
+	<li>chilli jam</li>
+</ul>
+
+<ol> is ordered list, they’re the same as ul, but numbered
+
+
+
+<img> allows for images on web page
+<img> like <br> is self closing, so no need for second tag
+e.g.:
+	<img src=“image-location.jpg”/>
+<img> has a required attribute called src, src must be the image source/location of the image
+	this could be a url
+
+alt is another attribute that is used for audiences in need for assistive technologies
+the alt attribute will display an alternate text and is used to describe what the image is
+<img src=“somewhere” alt=“A cool photograph of a bloomed in darkrooms party”>
+	if image fails, a user can mouse over the area and read the description
+	screen reading software reads the image out to visually impaired users
+	alt helps with SEO search engine optimisation
+		you know, seeing as search engines can’t “see”
+
+<video> is for videos
+videos require an src like images
+video tags are not self closing:
+	<video src=“myVideo.mp4” width=“320” height=“240” controls>
+	video not supported
+	</video>
+height and width attribute are used to set thee size
+controls attribute makes the browser include basic video controls, playing and pausing 
+the text in between the tags will show if the video cannot be loaded
+
+
+preparing for HTML
+html pages need to be set up, we start by declaring
+<!DOCTYPE html>
+this needs to be first line of code
+the current version of HTML is HTML 5, using <!DOCTYPE> our pages become future proof and will always ready the current iteration of HTML version
+
+HTML is saved in .html extension
+
+to initiate actual html, we need to use <html>
+<!DOCTYPE html>
+<html>
+
+</html>
+
+
+
+next we add the head:
+the head contains meta data about the page itself
+head is akin to body, think of the head as mental information about the page
+and the body is the physical information about the page
+
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+</body>
+
+</html>
+
+
+what goes inside the head?
+<title></title> this will display a title which is shown in a given tab in a browser
+<html>
+<head>
+<title>
+</title>
+</head>
+
+
+what foes inside the body?
+<a></a> anchor tags, these create links to other pages
+anchor tags need a href attribute:
+	<a href=“google.com".>Let's visit google</a>
+
+if you want to open in a new window, use target attribute and use value of _blank
+<a href=“google.com" target=“_blank”>Let’s google that, but come back</a>
+*when we saw new window, these days its just a new tab
+
+linking to relative page
+HTML files are often stored in a root directory/main folder where all the pages are located
+as the project grows you’ll start to yuse more folders to help organise:
+	project-folder/
+|— about.html
+|— contact.html
+|— index.html
+3 different files in one folder:
+link pages together using relative path:
+	<a href=“./contact.html”>Contact.</a>
+
+“./“ means look in the same directory
+
+you can turn any element into a link, by wrapping it/inserting it in anchor tags
+images can be links, for example
+
+you can link to specific parts of a long webpage:
+	to link, give an element an id, and provide an anchor tag with a target of that id
+
+<p id=“top”> This is the top of the page</p>
+<h1 id=“bottom”>This is the bottom!</h1>
+
+<ol>
+	<li><a href=“#top”>Top</a></li>
+	<li><a href=“#bottom”>Bottom</a></li>
+</ol>
+to target those id’s, use the # to refer to the string used as the id
+
+
+<!— —> to add a comment
+comments help you remember things
+help direct other co developers
+comments can be seen client side
+
+tidbits:
+all html content must be between html tags
+
+
+intro to mozilla developer network (MDN)
+open source network of documentation and tools:
+	for html, css and javascript 
+in mdn you can:
+	demo code
+	learn more about attributes
+	see usage notes, detailing good practice
+	see examples of code
+	understand accessibility, how cheapening code can affect impaired users
+	understand browser compatibility 
+	
+
+HTML on MDN web docs:
+debugging:
+the way that browsers parse HTML is a lot more permissive than how programming languages such as python, javascript are
+this is good, and bad:
+
+permissive:
+browsers will parse code, because when the web was created it was decided getting the content out was more important that absoluteness, the web otherwise may not have been as popular as it is now
+
+
+doing something wrong in code results in two main type of error:
+	syntax: spelling, punctuation
+	logic: syntax correct, desired result not achieved, you wont get an error messages
+
+browsers parsing code may attempt to tie things off/correct things by:
+	giving open ended tags a closed tag
+	apply correct nesting
+	delete links that do not render
+
+to proof check your code you can run your code through the markup validation service
+you do this by putting your page address into the search bar on validator.w3.org
+you can directly input HTML code
+or upload HTML file
+
+error assist messages:
+there are many suggestions based on errors that will be returned from debugging or running the validation service, many are self explanatory but here are some complicated ones:
+	end of file reached when inside an intrubute value, ignoring tag:
+		a value is not properly formed somewhere, possibly near the end of file, the end of
+		the file seems to appear inside the value
+
+	end of file seen and there were open elements:
+		refers to the fact that you need to close elements
+
+	unclosed element (“ul”):
+		of course, a particular element is not closed, but beware of messages like this,
+		this may appear because another element within the element is not closed, for
+		example an anchor link from within the unordered list
+
+sometimes fixing one error will remove other errors, try fixing any given error that you can and prioritising that.
+
+a green banner after validating your code indicates success.
+
+objective: fashion blog
+we’re making a page for our friend’s fashion blog
+set up document with doctype html
+enter html tag
+below html tag, enter the head tag for page metadata (you can give the head tag a title)
+below head tag enter body tag for page content
+within body tag, add your h1, be sure to have only one h1
+you can add h2’s for subsequent headers
+underneath our h2’s, add p’s
+add images wherever using img, single tag with href source to links or local files
+you can add h3’s for sub subtitles, dont use headers to style/size text, we have css for that
+add lists using ul or ol and li
+use links using anchor tags and their href will be where we’re redirected to, anything can be a link if you wrap the element in a tags, use target=“_blank” to open a new tab on click
+we can use div to divide up our paragraphs, we can give id’s to div if we want to single them out
+use strong and em for further style formatting
+use a tags to navigate around the page, if a p/div has an id, an a tag can redirect to that p/div by href value hashtag id name e.g. href=“#contact”
+
+tables
+<table></table> creates a table
+
+to add data, we need rows, columns to make our cells
+<tr></tr> table row, e.g:
+	<table>
+		<tr>
+		</tr>
+		<tr>
+		</tr>
+	</table>
+
+add table data using <td></td> e.g:
+	<table>
+		<tr>
+			<td>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			</td>
+		</tr>
+	</table>
+
+adding table data will increase the row to the right
+
+use <th></th> to add a table header
+this must be placed within table row
+you may use blank table headings to align the table titles and their content:
+	think of the top left corner of a table
+
+scope attribute:
+	tells the browser if the heading is for a row or column, this attribute takes two
+	values:
+		“col”
+		“row”
+e.g:
+	<th scope=“col”>Saturday</th>
+	<th scope=“col”>Sunday</th>
+
+border attribute:
+a border can be given to a table by putting the border attribute in the table tag
+at least in older versions
+
+please use css to add borders:
+e.g;
+	table, td {
+		border: 1px solid black;
+	}
+
+
+to add data that spans across multiple columns use colspan attribute for td
+e.g:
+	<table>
+		<tr>
+			<th>Monday</th>
+			<th>Tuesday</th>
+			<th>Wednesday</th>
+		</tr>
+		<tr>
+			<td colspan=“2”>Out of Town</td>
+			<td>Back in Town</td>
+		</tr>
+	</table>
+colspan takes a value of integer which will be how many columns to span across
+note: this also pushes the row outward a column
+
+in similar fashion there is rowspan, this works exactly the same, but works downward
+note: this also also pushes the row outward a column
+
+
+when a table grows and becomes bigger, it will become harder to manage
+the table can be sectioned off to help with management, use:
+table body:
+	<tbody></body>
+tbody contains all the table data excluding the heading
+
+in similar fashion we have table head, we can use this to section of the headings of our columns:
+table head:
+	<thead></thead>
+
+in similar fashion we have talble footer, which we can use to section off the bottom of a table:
+table footer:
+	<tfoot></tfoot>
+
+styling tables with css
+tables by default a bland, no borders, font colour black, same type face as other HTML elements
+use css to style the different compartments of a table
+be sure to be specific use table td and not just td e.g;
+	table td {
+		font-size: 18px;
+	}
+
+	table th {
+		font-size: 18px;
+	}
+
+
+wine festival schedule table e.g;
+here is what some actual table code looks like:
+
+   <div class="classnamehere">
+      <table>
+        <!--table start-->
+        <!—head-->
+
+        <thead>
+
+          <tr>
+            <th><h1>Table title</h1></th>
+          </tr>
+          <tr>
+            <th><h2>Title left</h2></th>
+            <th><h2>Title right</h2></th>
+            <th></th>
+          </tr>
+        </thead>
+—————————————
+
+
+        <!-- body -->
+        <tbody>
+          <tr>
+            <td class=“left”><h3>Left Text 1</h3></td>
+            <td>Right Text 1</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>01:00 PM</h3></td>
+            <td>Storytelling & Tasting</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>02:00 PM</h3></td>
+            <td>Wine Luccheon</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>03:00 PM</h3></td>
+            <td>Aguillar Family Wines</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>04:00 PM</h3></td>
+            <td>Wine & Cheese Tasting</td>
+          </tr>
+        </tbody>
+
+        <tfoot></tfoot>
+      </table>
+    </div>
+
+here is a template for future use:
+
+   <div class="container">
+      <table>
+        <!--table start-->
+        <!--head-->
+        <thead>
+          <tr>
+            <th colspan="2"><h1>Wine Festival Schedule</h1></th>
+          </tr>
+          <tr>
+            <th><h2>Time</h2></th>
+            <th><h2>Event</h2></th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <!-- body -->
+        <tbody>
+          <tr>
+            <td class="left"><h3>12:00 PM</h3></td>
+            <td>Welcome Reception</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>01:00 PM</h3></td>
+            <td>Storytelling & Tasting</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>02:00 PM</h3></td>
+            <td>Wine Luccheon</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>03:00 PM</h3></td>
+            <td>Aguillar Family Wines</td>
+          </tr>
+
+          <tr>
+            <td class="left"><h3>04:00 PM</h3></td>
+            <td>Wine & Cheese Tasting</td>
+          </tr>
+        </tbody>
+
+        <tfoot></tfoot>
+      </table>
+    </div>
+
+introduction to semantic HTML
+when making pages, we use semantic and non semantic HTML
+semantic means related to meanings
+semantic elements give a clue as to what their content will be
+
+div and span are not semantic because they give no context to their content, they are indifferent
+
+instead of <div> for our header, we could use <header>
+
+
+why use semantic HTML?
+accessibility:
+	it makes the page more accessible for mobile devices, people with disabilities and screen 		readers
+
+SEO:
+	improves website Search Engine Optimisation
+	will in turn increase the number of people visiting the page
+	search engines can identify the page content more and redirect traffic better
+
+easier to understand:
+	semantic html is easier to interpret for other web developers
+
+
+header
+a <header> is a container for navigational links or introductory content containing h1 to h6 headings
+e.g;
+	header
+		h1
+			everything you need to know about pizza
+		h1
+	header
+
+nav
+a <nav> is used t define a block of navigation links, menus and tables of contents
+you can have a nav inside a header, but you can have it by itself too
+
+
+main and footer
+both <main> and <footer> are like nav and header, they describe where an element is located
+the element main is used to encapsulate the dominant content in a webpage 
+
+main is separate from nav and footer because they dont have principal/proceeding content
+using main helps browsers and screen readers identify the bulk of the content
+e.g;
+	main
+		header
+			h1
+				types of sports
+			h1
+		header
+		
+		article
+			h3
+				baseball
+			h3
+			p
+				the first game of baseball was played in cooperstown new york in 					the summer if 1839
+			p
+		article
+	main
+
+footer is content at the bottom of the subject
+this is typically for:
+	contact information
+	copyright information
+	terms of use
+	site map
+	reference to top of page links
+
+e.g;
+	footer
+		p
+			email me at codey@codeacademy.com
+		p
+	footer
+
+section defines elements in a document such as chapters, headings or the like
+content with the same theme can go under a single section
+a websites homepage could be split into sections for introduction, new items, contact information
+e.g;
+	section
+		h2
+			fun facts about cricket
+		h2
+	section
+
+article is for information or content that makes sense on its own
+article can hold content such as blogs, articles, comments, magazines
+e.g;
+	section
+		h2
+			fun facts about cricket
+		h2
+		article
+			p
+				a single match of cricket can last up to 5 days
+			p
+		article
+	section
+
+the aside element is used to mark information that enhances another element, but not required to understand the content
+aside can go alongside elements such as article or section
+exampels of aside use:
+	bibliographies
+	endnotes
+	comments
+	pull quotes
+	editorial sidebars
+	additional information
+
+example use:
+	article
+		p
+			the first world series was played between pittsburg and boston in 1903 and 				was a nine game series
+		p
+	article
+	aside
+		p
+			bab ruth once stated heroes get remembered but legends never die
+		p
+	aside
+
+figure and fig caption is for images and illustrations
+figure is an element used to encapsulate media such as images, illustrations, diagram, code snippets
+e.g;
+	figure
+		img src overwatch.jpg
+	figure
+
+you can use fig caption to describe the media in the figure tag
+fig caption typically goes inside figure
+
+audio is used to embed audio content into a document like video, we need a src but we also need a self closing source tag
+
+there is an additional attribute called type, as in what type of audio is it?
+	audio
+		source src=“iAmAnAudioFile.mp3” type=“audio/mp3”
+	audio
+
+type is used so browsers can identify if the type is supported and therefore attempt to play
+be sure to add controls too:
+	audio
+		source src=“audiofilename.mp3” type=“audio.mp3” controls
+	audio
+
+some attributes for audio:
+	autoplay
+		plays audio as soon as it can, does not wait to finish loading
+
+	loop
+		loops audio after finishing
+
+	muted
+		mutes audio initially, needs a value of true
+
+
+video is in same fashion as audio
+however note that source is not needed
+video attributes include:
+	controls
+	autoplay
+	loop
+
+e.g.
+	video src=“coding.mp4" controls
+		video not supported
+	video
+		
+
+embed can contain videos, audios and gifs from external sources
+embed is a legacy tag, and is no longer typically used
+
+introduction: fundamentals of CSS
+how is css used for web development
+use css to add initial style to a website
+understand the box model in css
+add positioning using css
+read css documentation
+
+css anatomy
+selector:
+	target the element
+
+declaration block:
+	established by curly brackets
+
+declaration:
+	the name of the property: value; pair that will apply style
+	e.g;
+		colour: blue;
+
+property:
+	what about it is to be styled?
+
+value:
+	and how?
+
+
+applying css:
+
+	external
+		the most ideal is within its on sheet, this way you can establish laws that apply 				automatically 
+
+	inline
+		you can do inline, but this is the most inefficient way, as if you add a new element 			you will have to manually add further styling
+
+	internal
+		alternatively you can add <style> elements nested into the head of the page
+		you write CSS code inside of the style element
+
+external stylesheet
+you can create external style sheets using .css
+
+linking css file
+if our files are separate (html, css) they must be linked back together
+failing to do so, our html won’t be able to locate the css code, furthermore if you have more than one css file, how does the html know which one to apply?
+
+	perhaps this is how dark mode is made, by switching the style sheet based on user events
+
+<link> must be used
+link is placed in the head of the file
+link requires two attributes:
+	href
+		address/pathing to the css file
+	rel
+		describes the relationship between the two files, typically set to ‘stylesheet’
+
+
+type
+	refers to selector, when we style using css we can style by type
+	all p’s are a type, all h1’s are a type, this is also known as element or tag selector
+
+universal selector
+	* is used to select all elements, note that this has few use case
+	it can be used to for example, reset a page to default
+
+class selector
+	the class attribute is there for css styling:
+		<p class=“brand”>Sole Shoe Company</p>
+	you then select this class by using a period and the class name:
+		.brand {
+
+		}
+
+	to make multiple classes in one attribute, we just need to add the values and separate 			them by space:
+		<p class=“green bold”>The great ourdoors</p>
+
+id selector
+	if we want an element to be solely unique we can give it an attribute of id,
+	ids can only be used once, as in the value you give it
+	to style an element via its id, we use the # and id name
+
+		#large-title {
+
+		}
+
+attributes selector
+	can be used to target an element with an attribute
+		[href] {
+			color: magenta;
+		}
+
+	you can get more specific too, say you dont want all the hrefs, but a particular kind of href:
+		<img src=“/images/seasons/cold/winter.jpg”>
+		<img src=“/images/seasons/warm/summer.jpg”>
+		img[src*=“winter”] {
+			height: 50px;
+		}
+	
+		img[src*=“summer” {
+			height: 100px;
+		}
+
+	the above syntax:	type[attribute*=value]		is able to single out attributes with 			different values, the value only needs to be contained, winter and summer are contained in 	both the two different links
+
+pseudo-class selector
+	sometimes elements change after user interactions:
+		when you click on an <input> element and a blue border is added showing that it is 		in focus
+
+		when you click on a blue <a> link and when you return the link is now purple
+
+		when you fill out a form and the submit button is disabled until all fields are 				complete
+
+	these are pseudo class selectors:
+	e.g;
+		:focus
+		:visited
+		:disabled
+		:active
+	
+	an example in use:
+		p:hover {
+			background-colour: lime;
+		}
+	whenever the mouse hovers over the paragraph, the paragraph will have a lime coloured 		background
+
+intentions:
+
+	classes:
+		 are meant for many elements, like grouping an aspect all together
+		you might use a class for all paragraphs that talk about a certain topic
+
+		if we need two headlines, one bold and green, the other bold and blue
+		instead of rewriting the code and changing it per item
+		we can make:
+		one .bold CSS rule,
+		one .blue CSS rule and 
+		
+		then for one head line, we give the bold green class
+		the other, we give the bold blue class
+	
+selecting an element with css
+	id = #
+	all = *
+	class = .
+	attribute = []
+	attribute with value = [attributehere*=“value here”]
+	type = typenamehere
+selecting an element inside another/‘child’ element
+	element target-element {
+ 
+	}
+
+selecting elements that feature other elements
+	element1.element2 {
+
+	}
+
+selecting multiple elements
+	element1, element2 {
+
+	}
+
+
+overriding:
+	class overrides type or element
+	id override classes
+	id > class > element/type
+
+ideally, use types, and then class, then id, so you can easily override styles when you need to
+
+chaining:
+	its possible to select elements with two specific features:
+		h1.special {
+			color: black;
+		}
+the above will target all h1 type, with a class of special
+
+descendant combinator:
+	you can also select elements that are children of other elements:
+	html:
+		<ul class=“main-list”>
+			<li> . . . </li>
+			<li> . . . </li>
+			<li> . . . </li>
+		</ul>
+
+	css:
+		.main-list li {
+			background-colour: white
+		}
+this makes the main-list li items the final selector 
+
+chaining and overriding;
+	when you add specific features such as all h5’s under a class with a certain name
+	this will override any other styling for generic h5’s
+
+multiple selectors:
+	when applying a style to more than one element with different aspects instead of applying
+	one by one you can do this with a single instance of code:
+		h1, .menu {
+			font-family: Georgia;
+		}
+
+introduction to visual rules
+font family
+when setting typeface on a webpage keep in mind
+	the font must be installed on the users computer or downloaded with the site
+	web safe fonts
+		are a group of fonts supported across most browsers and OS
+
+	unless youre using web safe fonts the font youre using may not appear the same between 
+	all browsers and OS
+
+	if the font name is more than one word, typically enclose the name in quotes:
+		h1 {
+			font-family: “Courier New”;
+		}
+
+font size
+	change font size by using font-size property:
+		p {
+			font-size: 18px;
+		}
+
+font weight
+	change font weight by using font-weight property:
+		p {
+			font-weight: bold;
+		}
+font-weight has another value called ‘normal’ for returning other affected values to normal if they are set to bold by default, for example if we set * to bold, but want a particular instance to not be bold, we can set the value to normal
+
+text align
+	by default text types and sits to the left side of any given page or container
+	use text-align to align text according to the parent element that holds it
+		h1 {
+			text-align: right;
+		}
+	more values:
+		left		align text left of its parent, if there is no parent the browser is
+				the parent
+
+		center		align centre
+
+		right		align right
+		
+		justify		spaces out text in order to align with the right and left side of the 						parent
+
+background-colour
+	styles elements background
+color
+	styles elements foreground colour
+
+opacity
+	how transparent an element is, measured from 0 to 1
+	1 = 100% opaque, 0 = 0% invisible
+
+background image
+	you can change the background image of any element
+	e.g;
+		.main-banner {
+			background-image:
+			url(“https://www.example.com/image.jpg"):
+		}
+use relative path link or url as per normal
+important
+important can be applied to css, it will override any style no matter what
+it should almost never be used, as once you do - you now cannot override important
+e.g;
+	p {
+		color: blue !important;
+	}
+use important carefully, as using it on broad selectors will override even the specifics within the broad selectors
+people tend to use important when working with multiple css style sheets and only apply to one specific html element
+
+introduction to the box model
+how are elements positioned and displayed on a website
+
+when you apply background colour it gets applied to the entirety of the element, including the right side of the text, when you align the text; it is aligned relative to something
+
+all elements on a page are ‘living’ inside a box
+that is why is meant by the box model
+
+changing the colour of an element changes the colour of the entire box, there is:
+	the dimensions of an elements box
+	the borders of an elements box
+	the paddings of an elements box
+	the margins of an elements box
+
+
+
+all elements have their w and h but in addition, from the outside in they have their:
+	margin:
+		the space between the edge of the element and the border
+
+	border:
+		the thickness and style of the border surrounding the content area and padding
+
+	padding:
+		the amount of space between the content area and the border
+	
+	
+
+height and width
+in a given element, these are set by default to hold the contents, so by default its dynamic
+setting the pc allows you to determine exactly the dimensions of the box, doing so will make it the same for all viewing devices
+
+an element that fills a laptop screen will overflow a mobile screen:
+	overflow;
+		a block element should handle content that goes beyond its boundaries
+
+
+
+borders
+	borders are lines that surrounds and element like a frame around a painting
+	borders can be set with a specific:
+		width
+			the thickness of the border, set in px or with keywords:
+				thin
+				medium
+				thick
+		style
+			the design of the border, brewers can render 1 of 10 styles:
+				none
+				dotted
+				solid
+		colour
+
+		e.g;
+			p {
+				border: 3px solid coral;
+			}
+	the properties can be set in one line of code
+	the default border is:
+		medium
+		none (style)
+		color
+			color is the current color of the element,
+			if color is not set for the element the web browser will assign the default 					value
+
+margin
+	refers to the space outside of the box
+		p {
+			border: 1px solid aquamarine;
+			margin: 20px;
+		}
+	the above code will put pixels of space outside of the paragraphs box on all four sides,
+	no other element can reach within 20 pixels of this territory
+	
+	as with padding you can set margins on each side:
+	padding-top
+	padding-right
+	padding-bottom
+	padding-left
+
+margin auto
+	you can also centre content, but you must follow syntax:
+	e.g;
+		div.headline {
+			width: 400px;
+			margin: 0 auto;
+		}
+	the example above will set the top and bottom margin to 0, but the right and left to be auto
+	auto will adjust until the content is centered 
+	you need a width to be able to centre an element or the width will be set automatically to 
+	the full width of the container
+	
+	margin: 0 auto;
+		is therefore automatic centering 
+
+margin collapse
+	left-right margins are always added together
+	in the diagram, element a and b both have a margin of 10px; so their combine margin is 
+	20px;
+	top-bottom margins are dependent on the dominant (larger) margin
+	between element a and element c, the margin will be 30px, and not 40px as they will not 		be added together, the bigger margin will simply take precedence
+
+
+border radius 
+	borders dont have to be square
+	you can modify the corners of a border box with the border radius property
+	e.g;
+		div.container {
+			border: 30px solid blue;
+			border-radius: 50px;
+		}
+	the code above will set all four corners of a radius to 5 pixels:
+		this means the same curvature that a circle with a radius of 5 pixels would have
+
+	you can create a border that is circle by creating an element with the same h and w, and 		setting the radius to half the width of the box, or 50%
+	e.g;
+		div.container {
+			height: 60px;
+			width: 60px;
+			border: 3px solid blue;
+			border-radius: 50%;
+		}
+
+padding
+	this is like the white foam, space between a picture and the frame surrounding it
+	we can modify this property using the padding property 
+
+	padding is used to expand the background colour and make the content look less 			cramped
+
+	you can be more specific about padding on each side using:
+		padding-top
+		
+		padding-right
+		
+		padding-bottom
+		
+		padding-left
+
+padding shorthand
+	you can refer to all values on a single line
+	imagine the values rotate clockwise starting from the top:
+	e.g;
+		p.content-header {
+			padding: 6px 11px 4px 9px;
+	the above means top is 6, right is 11, bottom is 4 and left is 9
+
+	if you want left and right to be equal, simply set one value for right, and left will be 			automatically determined as the same
+	e.g;
+		p.content-header {
+			padding: 5px (top) 10px (right)  20px (bottom) 
+	left will be 10px like right
+
+
+	if you want top and bottom to be equal you can simply determine top and right, and 			bottom and left will be automatically determined
+	e.g;
+		p.content0header {
+			padding: 5px (top) 10px (right);
+	bottom will be 5px like top, and left will be 10px like right
+
+minimum and maximum height and width
+	web page can be viewed through many different screen size
+	the content can suffer
+	to avoid, use:
+		min-width
+		max-width
+		min-height
+		max-height
+
+	e.g;
+		p {
+			min-width: 300px;
+			max-width 600px;
+		}
+	the above code will not shrink below 300 and not grow beyond 600 regardless of the 			browser
+	the same applies for the height aspect
+
+overflow
+	a single element’s size is calculated by adding all of the elements aspects together
+	all the heights are added to give a sum of the total height and likewise for width
+	if we have an element that has an image of 300px wide and 200px tall
+	10px padding left and right (320)
+	10px padding top and bottom (220)
+	2px border left and right (324)
+	2px border top and bottom (222)
+	20px margin left and right (364)
+	20px margin top and bottom (244)
+
+	the element is therefore 364 x 244
+
+	sometimes the components are bigger than the element container
+	we can view of all an element’s components that go beyond its element container limit
+	using the overflow property
+
+	the overflow property controls what happens to content that spills or overflows outside the
+	box
+
+	typical values are:
+		hidden
+			content that overflows will become hidden
+
+		scroll
+			a scrollbar will be added so the rest of the content can be viewed via a 					scrollbar
+
+		visible (default)
+			the overflow content will be displayed outside of the containing element
+
+	the overflow property is given to the parent element so that the affect can take place on 
+	the children
+
+	overflow x and y separate the horizontal and vertical aspects
+
+restoring defaults
+	all major web browsers have a default style sheet they use in absence of an external
+	these are called user agent stylesheets
+	the term use agent is technical term for the browser
+
+	many developers choose to reset these default values so the ycan have a shot at a clean 		slate
+	e.g;
+	* {
+		margin: 0;
+		padding: 0;
+	}
+	this code resets the default margin and padding of all html elements and is often the first 		CSS rule in a stylesheet
+
+	when anything is set to 0, it doesn’t require a unit of measurement, 0 is universal
+
+visibility
+	elements can be hidden from view with the visibility property
+	values are:
+		hidden
+			hides an element
+		
+		visibile
+			displays an element
+
+		collapse
+			collapses an element
+
+	do notes that users can still view element content via their browser source code
+
+display: none vs visibility: hidden
+	display: none
+		this will remove the content from the page completely
+	visibility: hidden
+		this will hide from the view, but the space will be reserved for it
+
+	they will both have their case use, hidden visibility is always ideal because it wont change 
+	the page set up or layout
+
+why change the box model?
+	when we use the box model, we’re compiling and styling elements, the different 				compartments can stack on each other:
+		h1 {
+			border: 1px solid black;
+			height: 200px;
+			width: 300px;
+			padding: 10px;
+		}
+	in the above code the height is 200, width 300, but the padding has added 40 pixels (10 		each side) the border thickness under this box model affects the dimensions
+	we’re currently at 220 x 320
+	the 1px thick border increases the height and width to 222 x 322
+		
+		when this happens it can be difficult to gauge a page once it grows big enough,
+		you will have many elements each with their many different compartments each
+		contributing to dimensions
+
+box model: content box
+	many properties in css have default value
+	for example, the default font-weight of text is normal
+	in css the box sizing property controls the type of box model the browser should use when 	interpreting a webpage
+	the default is content box
+	this is the box model that is affected by border thickness and padding
+
+
+box model: border-box
+	fortunately, we can reset the entire box model and specify a new one: border box
+	* {
+		box-sizing: border-box;
+	}
+	the code in the example above resets the box model to border-box
+	the new box model avoids dimensional issues that content box has with added dimension
+	
+	in this model, the height bandwidth of the box remain fixed
+	the border, thickness and padding is included inside of the box, meaning overall 				dimensions of the box dont change
+
+	* {
+		box-sizing: border-box
+	}
+	
+	h1 {
+		border: 1px dashed #4f768e;
+		height: 150px;
+		width: 200px;
+		padding: 20px;
+	}
+	with the above code 150px x 200px as per height and width,
+	the border thickness and padding remains inside of the box
+
+the box model in devtools
+view and edit a HTML element’s box using chrome devtools
+
+intro
+	all htmls elements are made up of four components
+	content container, padding, border and margin
+	
+
+	view box model dimensions with dev tools
+	you can use google chrome’s dev tools to view the box around every element on a web 			page. there are a few different ways to open devtools, depending on platform
+
+	mac:
+		command + option + i
+
+		view > developer > developer tools
+
+		chrome 3 dot menu > more tools > developers tools
+
+	windows:
+		control + shift + i
+		
+		F12
+		
+		chrome 3 dot menu > more tools > developer tools
+
+
+	with dev tools open, navigate to the elements tab
+	in elements tab, you can view all elements on the current page, from this view
+	you can select element of interest
+	this will open a new column on the right side
+	select computed on top of the right most column
+
+	you can also right click and element you want to observe and select inspect button
+	this will display dev tolls on the right side of the browser with the element selected in the
+	elements tab
+
+flow of html
+a browser will render elements of an HTML document that has no CSS from left to right, top to bottom, like a book
+
+this is called flow of elements in HTML
+
+css includes properties that change how a browser positions elements, these properties specify:
+	where an element is located on the page
+	if the element can
+	other attributes
+
+there are 5 properties adjusting position:
+	position 
+	
+	display
+		
+	z-indez
+
+	float
+
+	clear
+
+
+
+position
+	the above image shows block level elements
+	they create a block full width of their parent element
+	they prevent other elements from appearing on the same horizontal space
+
+	they default to the left
+		the default position can be changed by setting its position property:
+			static (default)
+
+			relative
+
+			absolute
+
+			fixed
+	
+			sticky
+
+
+position relative
+	position an element relative to the default/static position:
+		.green-box {
+			background-colour: green;
+			position: relative;
+		}
+	above code instructs the browser to expect a relative position of .green-box element
+	however there is no specification as to where .green-box should be
+	you can do so by accompanying position with one or more of the following offset 			properties:
+		top
+			moves the element down from the top
+
+		bottom
+			moves element up from the bottom
+
+		left
+			moves the element away from the left side (to the right)
+
+		right
+			moves the element away from the right (to the left)
+		
+		you can specify the values in pixels, ems, percentages, offset will not work if 				property is set to static
+		e.g;
+			.green-box {
+				background0color: green;
+				position: relative;
+				top: 50px;
+				left: 120px;
+			}
+		the above code moves element green box down 50 pixels and right 120 pixels:
+
+
+
+
+
+
+
+
+
+offset does not affect position of other elements
+
+position absolute
+	another way of modifying the position of an element is setting its position to absolute
+
+	when doing so, all other elements on a page will ignore the absolute element and act like it 	is not present on the page
+
+	the element will be position relative to its loses positioned parent element
+	offset properties can be used to determine the final position from there
+
+
+	the text in displaced from its static position at the top left of its parent container
+	it has property declarations of:
+		top: 300px
+		right: 0px
+
+	this will move it 300px down, and 0px from the right side of the page.
+
+
+position fixed
+	with elements set to absolute, the element will scroll with the rest of the document
+	when a user scrolls
+
+	we can make an element fixed to a specific position on the page regardless
+	set the position to fixed and add a property:
+		top
+
+		bottom
+
+		left
+
+		right
+
+	e.g;
+		.title {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+		}
+	this is often used for navigation bars on a web page
+
+
+position sticky
+	static and relative stay within the left to right top to bottom flow of the html document
+	these positions scroll with the page
+
+	fixed and absolute are removed from the document flow and stay in a specific offset
+	position and scroll with the user
+
+	sticky also scrolls with the user but sticks to a specified position as the page is scrolled
+	it uses the same properties
+
+	with sticky, the element will move until a position is met and then will ‘stick’, moving 
+	backwards will unstick the property 
+
+
+z index
+	when boxes on a web have many different positions, content can overlap
+	z index controls how far back or forward an element should appear
+
+	this is like an element depth
+	deeper elements appear behind shallow elements
+
+	the z index accepts integer values
+	with this organising the layering of elements on a page
+
+	z index does not work on static elements, you must changed the element to relative
+	default z index is 0
+
+display: inline
+	all elements have a default display value that dictate if it can share horizontal space with
+	other elements
+	
+	some elements fill the entire browser from left to the right regardless of the size of their 			content
+
+	some, only as much as required
+
+	the display property has 3 values:
+		
+		inline
+
+		block
+
+		inline-block
+
+	the default display for some elements such as <em>, <strong> and <a>
+	is called inline, inline means there is a box that wraps tightly around the element
+	content, only as much as required
+
+	it does not for instance, occupy a new line
+	inline height and width cannot be specified in CSS
+
+	display property can make elements not inline by default, inline, these elements 
+	are those such as paragraphs, divs, headings
+
+	you cannot set height and width for inline
+
+display: block
+	some elements are not displayed on the same line as content around them
+	these are block level elements, filling the entire width of a page
+	their width can be set
+	they are otherwise their necessary height
+
+	block level elements:
+		h1 to h6
+
+		p
+
+		div
+
+		footer
+
+display: inline-block
+	this is a mixture of both
+	elements appear side by side, we can specify their width and height
+	images are the best example of default inline-block element
+
+	for example divs will be displayed on the same line with specified dimensions:
+	
+<div class="rectangle">
+  <p>I’m a rectangle!</p>
+</div>
+<div class="rectangle">
+  <p>So am I!</p>
+</div>
+<div class="rectangle">
+  <p>Me three!</p>
+</div>
+.rectangle {
+  display: inline-block;
+  width: 200px;
+  height: 300px;
+}
+float
+	as of now we’ve been exacting the position of elements 
+	to simply move an element far left or fat right in a container, we can use the float
+	property
+
+	float tends to be used for wrapping text around an image, moving an element left or right
+	is better suited for tools like CSS grid and flex box
+
+	properties:
+
+		left
+			move as far left as possible
+
+		right
+			move as far right as possible
+		
+	e.g;
+		.green-section {
+			width: 50%;
+			height: 150px;
+		}
+
+		.orange-section {
+			background-colour: orange;
+			width: 50%
+			float: right;
+		}
+			
+			
+	float elements must have a width specified, like above
+	the element will assume the full width of its containment, and moving to the right of 			something you occupy 100%
+		means you dont move
+
+
+	clear
+		the float property can float multiple elements at once
+		when multiple properties have different heights, it can affect their layout on the 				page
+
+		elements can ‘bump’ into each other and stop each other from moving left/right
+
+		clear properties speicfifies how elements should behave when they run into each 			other
+
+		values:
+			left
+				left side of the element will not touch any other element within
+				the same containing element
+
+			right
+				^
+
+			both
+				neither side of the element will touch any other element within the
+				same containing element
+		
+			none
+				the element can touch either side
+
+		in essence, clear left right both, will shove elements atop one another, the element 
+		with the property will be atop
+
+
+introduction: developing websites locally
+	develop websites on your own computer 
+	learn about chrome dev tools
+
+	use text editors 
+	use chrome dev tools to inspect webpages
+
+	visual code studio is widely used
+
+	using a text editor such as pycharm, vs code is part of creating your development 			environment
+
+
+making a website
+	make a home page directory, the most outward folder, or first folder
+	it is good practice to make the homepage named index.html
+
+	boilerplate
+		starter coded needed for browsers that is mandatory 
+		in vs code, type html and use html5
+
+		or you can copy paste a boilerplate
+	main sections
+		all html have two sections
+		head, and body
+
+		head
+			most irrelevant information to humans go into the head, js code, css links
+			the exception being the title which will indicate a website on a tab
+
+		body
+			most if not all of the website content will go here
+
+		i will be indenting body and head on my pages
+
+		h1
+			remember that h1 through to h6 are assigned importance for SEO, h1
+			marks the most importance for SEO, h6 the least
+
+	remote vs local url
+		remote
+			a url on a dedicated server for your website, will be accessed by the public
+			will utilise https
+
+		local
+			a url utilising the pathways on your personal device
+
+deploying websites
+you’ve made an application and this would be amazing for the world, but it lives on your computer 
+how do we deploy your application?
+you cant give everyone your computer
+can we put our application on other computers? to the world?
+we need to host our application
+we dont want to buy a room full of supercomputers, wires everywhere, we simply should rent
+
+hosting provider
+a business that maintain all the servers/resoruces needed to host applications
+
+	types of hosting
+		website builders
+			squarespace, wix
+			no need to write code
+			no need to be a developer
+			sort our emails, hosting
+
+		shared web hosting
+			you get a portion of the server
+			your application may suffer from shared bandwidth
+			cheaper to rent
+			you are sharing a slice of a server with other clients
+			
+
+		dedicated web hosting
+			more expensive
+			but you get your own bandwidth
+			belongs only to you
+
+		cloud hosting
+			your application has different resources that need to be shared
+			running your application in the cloud
+			a vast network of data centres
+			run different parts of your applications on different parts of machines 
+			
+
+	what to choose?
+		git hub pages
+			good for static applications
+
+	heroku
+		good for full stack applications
+		free trial
+		can cost money fast
+
+	digital ocean
+		cloud provider
+		middle difficulty (not as easy as heroku, not as hard as amazon)
+
+
+		
+what is a domain name?
+computers talk to each other  using numbers 
+humans use words
+domain names are translations of these numbers that represent websites into words
+
+	a domain name is not the website
+	the domain name is not an email
+		yet you can’t have either without a domain
+
+dns
+	translate ip address into numbers
+
+how does it work?
+	we type a domain name into browser
+	pc checks cache memory to pull website
+	or it goes to resolver, internet servers provider
+	or not, it goes to root server 
+	there are 13 root servers in the world
+		each root server has its on ip address
+
+domain name extensions 
+	.com (most popular)
+	.org
+	.edu
+	.net
+	.biz
+	.info
+	.gov
+	
+	country codes:
+	.de (Germany)
+	.cn (china)
+	.fr (france)
+
+what is GitHub pages?
+create and deploy websites online, store code for website in repository, use git hub pages to generate a personal URL and share with the world
+
+	GitHub vs. github pages
+	in GitHub, code is stored in a repo
+	this is a special folder that lives online,
+	GitHub hosts that folder so it is accessible to you and your teammates anywhere
+	
+	in this case, our repo will contain HTML and CSS that define a website
+	we cant see the website, but GitHub will display the code	
+
+
+
+	when creating a repo
+	changes to the repo are called commits
+	each commit is a snapshot of your repo at different times
+	
+	
+
+command line
+	command line is fully text based interface for your computer to take commands
+	you can navigate though files and folders
+
+	the advantage of command line comes from its power, you can:
+		run programs
+		write scripts
+		automate common tasks
+		combine simple commands, handle difficult tasks
+
+	folders are called directories
+	files and directories are organised into a “filesystem”
+
+
+filesystem
+	the first directory is called a root directory 
+	it is the parent of all other directories and files in the filesystem
+
+	the root directories can have directories, and those directories can have directories
+	
+
+command line commands
+	ls
+		looks in the directory we are in and lists all the files inside of it
+
+	$
+		means the command line is ready to accept a command
+
+	pwd
+		print working directory: outputs name of directory we are in called working 				directory 
+
+	cd
+		change directory
+		**$ cd filename**
+
+	cd ..
+		move up one directory
+
+	..
+		above current working directory
+
+	cd /filename/filename/filename
+		navigate many directories 
+
+	cd ../..
+		move up two directories 
+
+	cd ../*filename*
+		move up one directory, move into adjacent directory 
+	
+	mkdir	(make directory)
+		creates a directory in the current working directory
+
+	touch
+		creates a new file inside working directory
+
+	tab button
+		auto complete command
+
+	up button/down button
+		cycle through previous commands
+
+	clear
+		clear terminal
+		makes output space clear of historical command, does not undo all previous 				commands
+		
